@@ -8,8 +8,6 @@
     Если есть ключ -Force то обновления отклоняются, если его нет, то только показывается список обновлений-кандидатов на отклонение
 #>
 
-#$Updates = Get-WsusUpdate -Approval $StatusApproved -Classification $StatusClassification -Status $StatusStatus | Where-Object {$_.Update.Title -like "$strFragmentTitle"}
-
 Param(
     $StatusApproved = "Approved",  # Approved, Unapproved, AnyExceptDeclined, Declined
     $StatusClassification = "All", # All, Critical, Security, WSUS
@@ -18,6 +16,7 @@ Param(
     )
 
 #Get-WsusUpdate -Approval Approved -Classification All -Status Any | Where-Object {$_.Update.Title -like "*arm64*"} | Deny-WsusUpdate -Confirm
+#$Updates = Get-WsusUpdate -Approval $StatusApproved -Classification $StatusClassification -Status $StatusStatus | Where-Object {$_.Update.Title -like "$strFragmentTitle"}
 
 #Белый список обновлений. Можно использовать подстановочные символы типа *. И даже нужно.
 #Ооочень рекомендуется делать каждый шаблон как можно больше
