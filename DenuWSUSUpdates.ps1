@@ -33,31 +33,32 @@ $DenyUpdatesPatterns =
     "*Itanium*",
     "*IA64*",
     "*Embedded*",
-    "*Windows 7*02 2021*",
-    "*Windows 7*03 2021*",
-    "*Windows 7*04 2021*",
-    "*Windows 7*05 2021*",
-    "*Windows 7*06 2021*",
-    "*Windows 7*07 2021*",
-    "*Windows 7*08 2021*",
-    "*Windows 7*09 2021*",
-    "*Windows 7*10 2021*",
-    "*Windows 7*11 2021*",
-    "*Windows 7*12 2021*",
-    "*Windows 7*2021-02*",
-    "*Windows 7*2021-03*",
-    "*Windows 7*2021-04*",
-    "*Windows 7*2021-05*",
-    "*Windows 7*2021-06*",
-    "*Windows 7*2021-07*",
-    "*Windows 7*2021-08*",
-    "*Windows 7*2021-09*",
-    "*Windows 7*2021-10*",
-    "*Windows 7*2021-11*",
-    "*Windows 7*2021-12*",
+    "*Windows 7*02 2020*",
+    "*Windows 7*03 2020*",
+    "*Windows 7*04 2020*",
+    "*Windows 7*05 2020*",
+    "*Windows 7*06 2020*",
+    "*Windows 7*07 2020*",
+    "*Windows 7*08 2020*",
+    "*Windows 7*09 2020*",
+    "*Windows 7*10 2020*",
+    "*Windows 7*11 2020*",
+    "*Windows 7*12 2020*",
+    "*Windows 7*2020-02*",
+    "*Windows 7*2020-03*",
+    "*Windows 7*2020-04*",
+    "*Windows 7*2020-05*",
+    "*Windows 7*2020-06*",
+    "*Windows 7*2020-07*",
+    "*Windows 7*2020-08*",
+    "*Windows 7*2020-09*",
+    "*Windows 7*2020-10*",
+    "*Windows 7*2020-11*",
+    "*Windows 7*2020-12*",
+    "*Windows 7*2021*",
     "*Windows 7*2022*",
     "*Windows 7*2023*",
-    "*Windows 7*2024*"
+    "*Windows 7*2024*"    
 
 $Script:CountAllUpdates = 0
 $Script:CountPatternUpdates = 0
@@ -100,6 +101,8 @@ function Select-UpdateByTitle(){
     End {}
 }
 
+$Date = Get-Date
+Write-Host "----- Время запуска скрипта" $Date "-----"
 $watch = [System.Diagnostics.Stopwatch]::StartNew()
 $watch.Start() #Запуск таймера
 
