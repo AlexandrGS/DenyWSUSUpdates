@@ -102,15 +102,15 @@ function Select-UpdateByTitle(){
     End {}
 }
 
-Write-Host "Очистка WSUS-сервера от ненужных обновлений"
-Write-Host "https://github.com/AlexandrGS/DenyWSUSUpdates"
+"Очистка WSUS-сервера от ненужных обновлений"
+"https://github.com/AlexandrGS/DenyWSUSUpdates"
 
 $Date = Get-Date
-Write-Host "----- Время запуска скрипта " + $Date + "-----"
+"----- Время запуска скрипта " + $Date + "-----"
 
-#Скрипт должен быть запущен с правами администратора
+#Скрипт должен быть запущен с правами администратора ???
 if (-not ([Security.Principal.WindowsPrincipal] [Security.Principal.WindowsIdentity]::GetCurrent()).IsInRole([Security.Principal.WindowsBuiltInRole] "Administrator")) {
-    Write-Warning "  Недостаточно прав для выполнения этого скрипта. Откройте консоль PowerShell с правами администратора и запустите скрипт еще раз"
+    "  Недостаточно прав для выполнения этого скрипта. Откройте консоль PowerShell с правами администратора и запустите скрипт еще раз"
     Return
 }
 
@@ -125,7 +125,7 @@ if($Force){
     "Отклоняю обновления"
     $DenyUpdates | Deny-WsusUpdate
 }else{
-    Write-Host "Просто вывожу список обновлений на отклонение. Для отклонения воспользуйся параметром -Force"
+    "Просто вывожу список обновлений на отклонение. Для отклонения воспользуйся параметром -Force"
 }
 
 "Всего обработано обновлений " + $Script:CountAllUpdates
