@@ -102,8 +102,17 @@ function Select-UpdateByTitle(){
     End {}
 }
 
+Write-Host "Очистка WSUS-сервера от ненужных обновлений"
+Write-Host "https://github.com/AlexandrGS/DenyWSUSUpdates"
+
 $Date = Get-Date
-"----- Время запуска скрипта " + $Date + "-----"
+Write-Host "----- Время запуска скрипта " + $Date + "-----"
+
+#Скрипт должен быть запущен с правами администратора
+if (-not ([Security.Principal.WindowsPrincipal] [Security.Principal.WindowsIdentity]::GetCurrent()).IsInRole([Security.Principal.WindowsBuiltInRole] "Administrator")) {
+    Write-Warning "  Недостаточно прав для выполнения этого скрипта. Откройте консоль PowerShell с правами администратора и запустите скрипт еще раз"
+    Return
+}
 
 $watch = [System.Diagnostics.Stopwatch]::StartNew()
 $watch.Start() #Запуск таймера
@@ -124,4 +133,5 @@ if($Force){
 
 $watch.Stop() #Остановка таймера
 "Время поиска и отклонения обновлений " + $watch.Elapsed #Время выполнения
+
 
